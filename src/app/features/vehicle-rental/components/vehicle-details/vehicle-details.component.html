@@ -1,0 +1,83 @@
+<main class="vehicle-details-container">
+  <div *ngIf="!hasVehicle" class="no-vehicle-message">
+    <p>No vehicle selected</p>
+  </div>
+
+  <section *ngIf="vehicle" class="vehicle-content">
+    <div class="back-button-container">
+  <app-button 
+    variant="secondary" 
+    (clicked)="goBack()"
+  >
+     Back to Vehicle List
+  </app-button>
+</div>
+    <h2 class="visually-hidden details-title">Vehicle Details</h2>
+    <!-- Header Section -->
+    <header class="vehicle-header">
+      <h1>{{ vehicle.makeModel }}</h1>
+      <p class="vehicle-status">{{ vehicle.status }}</p>
+    </header>
+
+    <!-- Image Gallery -->
+    <div class="image-gallery">
+      <img [src]="vehicle.pictureUrl" [alt]="vehicle.makeModel" class="main-image" />
+      <div class="thumbnail-container"></div>
+    </div>
+
+    <!-- Specifications Tab -->
+    <div class="specs-tab">
+      <h3 id="specs-heading" class="visually-hidden">Vehicle Specifications</h3>
+      <div class="specs-grid">
+        <div class="spec-item">
+          <span class="spec-label">Drive Type</span>
+          <span class="spec-value">{{ vehicle.driveType }}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Transmission</span>
+          <span class="spec-value">{{ vehicle.transmissionType }}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Fuel Type</span>
+          <span class="spec-value">{{ vehicle.fuelType }}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Passengers</span>
+          <span class="spec-value">{{ vehicle.passengerQuantity }}</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Baggage Capacity</span>
+          <span class="spec-value">{{ vehicle.baggageQuantity }} bags</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-label">Air Conditioning</span>
+          <span class="spec-value">{{ vehicle.airConditionInd ? "Yes" : "No" }}</span>
+        </div>
+        <div class="spec-item" *ngIf="vehicle.size">
+          <span class="spec-label">Size</span>
+          <span class="spec-value">{{ vehicle.size }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pricing Tab -->
+    <div class="pricing-tab">
+      <div class="price-summary">
+        <div class="price-item">
+          <span class="price-label">Estimated Total</span>
+          <span class="price-amount">
+            {{
+              vehicle.totalCharge.estimatedTotalAmount | currency: vehicle.totalCharge.currencyCode
+            }}
+          </span>
+        </div>
+        <div class="price-item">
+          <span class="price-label">Total Amount</span>
+          <span class="price-amount total">
+            {{ vehicle.totalCharge.rateTotalAmount | currency: vehicle.totalCharge.currencyCode }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,67 @@
+@use "../../../../styles/variables"as v;
+@use "../../../../styles/typography"as typo;
+
+.rental-legend {
+    background: v.$grey;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.legend-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.legend-item {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+    min-width: 250px;
+}
+
+.legend-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    svg {
+        width: 24px;
+        height: 24px;
+        color: v.$white;
+    }
+}
+
+.legend-content {
+    flex: 1;
+}
+
+.legend-title {
+    margin: 0 0 0.25rem;
+    @include typo.subtitle-m;
+    color: v.$black;
+}
+
+.legend-detail {
+    margin: 0;
+    @include typo.body-s;
+    color: v.$black;
+
+    &:not(:last-child) {
+        margin-bottom: 0.25rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .legend-container {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .legend-item {
+        min-width: 100%;
+    }
+}

@@ -1,0 +1,26 @@
+<section class="rental-legend" aria-labelledby="rental-legend-heading" *ngIf="vehicleRentalInfo">
+  <h2 id="rental-legend-heading" class="visually-hidden">Rental Information</h2>
+  <div class="legend-container">
+    <div class="legend-item">
+      <div class="legend-icon">
+        <img width="24" height="24" src="assets/Icons/angle-right.svg" alt="Pick-Up Location" />
+      </div>
+      <div class="legend-content">
+        <h3 class="legend-title">Pick-Up</h3>
+        <p class="legend-detail">{{ vehicleRentalInfo.pickUpLocation }}</p>
+        <p class="legend-detail">{{ vehicleRentalInfo.pickUpDateTime | date: "long" }}</p>
+      </div>
+    </div>
+
+    <div class="legend-item">
+      <div class="legend-icon">
+        <img width="24" height="24" src="assets/Icons/angle-left.svg" alt="Return Location" />
+      </div>
+      <div class="legend-content">
+        <h3 class="legend-title">Return</h3>
+        <p class="legend-detail">{{ vehicleRentalInfo.returnLocation }}</p>
+        <p class="legend-detail">{{ vehicleRentalInfo.returnDateTime | date: "long" }}</p>
+      </div>
+    </div>
+  </div>
+</section>

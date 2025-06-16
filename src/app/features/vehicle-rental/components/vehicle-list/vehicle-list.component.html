@@ -1,0 +1,65 @@
+<main>
+  <app-rental-information
+    *ngIf="vendorAvails[0]?.rentalCore"
+    [vehicleRentalInfo]="vendorAvails[0].rentalCore"
+    class="rental-info"
+  ></app-rental-information>
+
+  <section
+    class="vehicle-list-header"
+    aria-labelledby="vehicle-list-header"
+    *ngIf="hasVehicles && !isLoading && !error"
+  >
+    <div>
+      <h2 class="vehicle-list-header-title">Available Vehicles</h2>
+      <p class="description">Find the perfect vehicle for your needs.</p>
+    </div>
+
+    <div class="sort-controls">
+      <select id="sort-select" [(ngModel)]="selectedSort">
+        <option *ngFor="let option of sortOptions" [value]="option.value">
+          {{ option.label }}
+        </option>
+      </select>
+    </div>
+  </section>
+
+  <!-- Loading and Error States -->
+  <div class="loading-error-container" *ngIf="isLoading || error">
+    <ng-container *ngIf="isLoading; else errorTemplate">
+      <div class="spinner"></div>
+      <p class="loading">Loading vehicles...</p>
+    </ng-container>
+    <ng-template #errorTemplate>
+      <p class="error" *ngIf="error && !isLoading">
+        {{ error }}
+      </p>
+    </ng-template>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="!isLoading && !error && !hasVehicles">
+    <h3>No vehicles available</h3>
+  </div>
+
+  <div class="vehicle-list-container" *ngIf="hasVehicles && !isLoading && !error">
+    <div *ngFor="let vendorAvail of vendorAvails" class="vendor-group">
+      <div class="vendor-header">
+        <img
+          width="100"
+          height="100"
+          [src]="'assets/Vendors/' + vendorAvail.vendor.name.toLowerCase() + '.svg'"
+          alt="{{ vendorAvail.vendor.name }} Logo"
+        />
+      </div>
+      <div class="vehicle-grid">
+        <app-vehicle-card
+          *ngFor="let vehicle of vendorAvail.vehicles | sortVehicles: selectedSort"
+          [vehicle]="vehicle"
+          class="vehicle-card-item"
+        >
+        </app-vehicle-card>
+      </div>
+    </div>
+  </div>
+</main>

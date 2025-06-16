@@ -1,0 +1,11 @@
+/* You can add global styles to this file, and also import other style files */
+@use "./app/styles/typography"as typo;
+
+body {
+    font-family: typo.$font-family;
+    @include typo.body-s;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   
+}

@@ -1,0 +1,107 @@
+// use grid layout for vehicle cards but groupby vendors
+@use "../../../../styles/variables"as v;
+@use "../../../../styles/typography"as typo;
+
+.vehicle-list-header {
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .vehicle-list-header-title {
+        @include typo.title-m;
+        color: v.$black;
+        margin: 0;
+    }
+
+    .sort-controls {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid v.$grey;
+
+        select {
+            @include typo.body-s;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            padding: 0.5rem 2rem 0.5rem 1rem;
+            border: 1px solid v.$grey;
+            border-radius: 6px;
+            background-color: v.$white;
+            color: v.$black;
+            cursor: pointer;
+            background-image: url('../../../../../assets/Icons/angle-down.svg');
+            background-repeat: no-repeat;
+            background-position: right 0.75rem center;
+            background-size: 1rem;
+            transition: all 0.2s ease;
+            min-width: 180px;
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0 3px rgba(42, 92, 141, 0.15);
+            }
+
+            option {
+                padding: 0.5rem;
+                background: v.$white;
+            }
+        }
+    }
+}
+
+.vehicle-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.vendor-group {
+    margin-bottom: 2rem;
+}
+
+.vendor-header {
+    display: flex;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid v.$grey;
+    color: v.$black;
+}
+
+.vehicle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+
+    .spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid v.$primary-color;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 1rem;
+        -webkit-animation: spin 1s linear infinite;
+    }
+}

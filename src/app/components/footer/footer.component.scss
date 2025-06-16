@@ -1,0 +1,34 @@
+@use "../../styles/variables"as v;
+
+.app-footer {
+    background-color: v.$grey;
+    padding: 2rem 0;
+    border-top: 1px solid v.$container;
+    margin-top: auto;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1rem;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+
+    .footer-nav ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 1.5rem;
+    }
+}

@@ -1,0 +1,75 @@
+// Font family
+$font-family: 'Open Sans',
+sans-serif;
+
+// Font weights
+$font-regular: 400;
+$font-semibold: 600;
+$font-bold: 700;
+
+// Typography mixins
+@mixin title-xl {
+    font-size: 3rem; // 48px
+    line-height: 4.063rem; // 65px
+    font-weight: $font-bold;
+}
+
+@mixin title-l {
+    font-size: 2.625rem; // 42px
+    line-height: 3.563rem; // 57px
+    font-weight: $font-bold;
+}
+
+@mixin title-m {
+    font-size: 2.25rem; // 36px
+    line-height: 3.063rem; // 49px
+    font-weight: $font-bold;
+}
+
+@mixin title-s {
+    font-size: 2rem; // 32px
+    line-height: 2.688rem; // 43px
+    font-weight: $font-bold;
+}
+
+@mixin subtitle-xl {
+    font-size: 1.75rem; // 28px
+    line-height: 2.375rem; // 38px
+    font-weight: $font-semibold;
+}
+
+@mixin subtitle-l {
+    font-size: 1.5rem; // 24px
+    line-height: 2.063rem; // 33px
+    font-weight: $font-semibold;
+}
+
+@mixin subtitle-m {
+    font-size: 1.25rem; // 20px
+    line-height: 1.688rem; // 27px
+    font-weight: $font-semibold;
+}
+
+@mixin subtitle-s {
+    font-size: 1.125rem; // 18px
+    line-height: 1.5rem; // 24px
+    font-weight: $font-semibold;
+}
+
+@mixin body-l {
+    font-size: 1rem; // 16px
+    line-height: 1.375rem; // 22px
+    font-weight: $font-regular;
+}
+
+@mixin body-m {
+    font-size: 0.875rem; // 14px
+    line-height: 1.188rem; // 19px
+    font-weight: $font-regular;
+}
+
+@mixin body-s {
+    font-size: 0.75rem; // 12px
+    line-height: 1.063rem; // 17px
+    font-weight: $font-regular;
+}

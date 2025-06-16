@@ -1,0 +1,26 @@
+@use "../../styles/variables"as v;
+
+.not-found-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 2rem;
+    text-align: center;
+
+    .not-found-content {
+        max-width: 500px;
+
+        h2 {
+            color: v.$primary-color;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: v.$black;
+            margin-bottom: 2rem;
+        }
+    }
+}

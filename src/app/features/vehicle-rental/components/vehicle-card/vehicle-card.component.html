@@ -1,0 +1,84 @@
+<article class="vehicle-card" id="{{ vehicle.code }}">
+  <figure class="vehicle-image">
+    <img
+      [src]="vehicle.pictureUrl"
+      [alt]="'Image of ' + vehicle.makeModel"
+      loading="lazy"
+      width="300"
+      height="200"
+    />
+    <figcaption class="visually-hidden">{{ vehicle.makeModel }}</figcaption>
+  </figure>
+
+  <div class="vehicle-content">
+    <header class="vehicle-header">
+      <h2 class="vehicle-title">{{ vehicle.makeModel }}</h2>
+      <p class="vehicle-status">{{ vehicle.status }}</p>
+    </header>
+
+    <section class="vehicle-specs" aria-labelledby="specs-heading">
+      <h3 id="specs-heading" class="visually-hidden">Vehicle Specifications</h3>
+      <ul class="specs-list">
+        <li class="spec-item">
+          <span aria-hidden="true">
+            <img width="24" height="24" src="assets/Icons/person.svg" alt="Passengers" />
+          </span>
+          <span>{{ vehicle.passengerQuantity }} passengers</span>
+        </li>
+        <li class="spec-item">
+          <span aria-hidden="true"
+            ><img width="24" height="24" src="assets/Icons/bag.svg" alt="Baggages"
+          /></span>
+          <span>{{ vehicle.baggageQuantity }} bags</span>
+        </li>
+        <li class="spec-item">
+          <span aria-hidden="true">
+            <span aria-hidden="true"
+              ><img
+                width="24"
+                height="24"
+                src="assets/Icons/transmission.svg"
+                alt="Trasmission Type" /></span
+          ></span>
+          <span>{{ vehicle.transmissionType }}</span>
+        </li>
+        <li class="spec-item">
+          <span aria-hidden="true">
+            <img width="24" height="24" src="assets/Icons/fuel.svg" alt="Fuel Type"
+          /></span>
+          <span>{{ vehicle.fuelType }}</span>
+        </li>
+        <li class="spec-item">
+          <span aria-hidden="true">
+            <img width="24" height="24" src="assets/Icons/door.svg" alt="Door count"
+          /></span>
+          <span>{{ vehicle.doorCount }} doors</span>
+        </li>
+        <li class="spec-item">
+          <span aria-hidden="true">
+            <img width="24" height="24" src="assets/Icons/snowflake.svg" alt="Passengers" />
+          </span>
+          <span>{{ vehicle.airConditionInd ? "Yes" : "No" }}</span>
+        </li>
+      </ul>
+      <div class="additional-specs">
+        <span class="spec-label">Size:</span>
+        <span class="spec-value">{{ vehicle.size || "N/A" }}</span>
+        <span class="spec-label">Drive Type:</span>
+        <span class="spec-value">{{ vehicle.driveType }}</span>
+      </div>
+    </section>
+
+    <footer class="vehicle-footer">
+      <div class="vehicle-price">
+        <p class="price-label">Total</p>
+        <p class="price-amount" aria-label="Total price">
+          {{ vehicle.totalCharge.rateTotalAmount | currency: vehicle.totalCharge.currencyCode }}
+        </p>
+      </div>
+      <app-button (clicked)="viewVehicleDetails()" class="view-button" variant="primary"
+        >View More</app-button
+      >
+    </footer>
+  </div>
+</article>

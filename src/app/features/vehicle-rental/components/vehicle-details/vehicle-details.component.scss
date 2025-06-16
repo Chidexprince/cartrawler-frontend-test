@@ -1,0 +1,133 @@
+// vehicle-details.component.scss
+@use "../../../../styles/variables"as v;
+@use "../../../../styles/typography"as typo;
+
+.no-vehicle-message {
+    text-align: center;
+    padding: 2rem;
+    background-color: v.$primary-color;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+
+    p {
+        @include typo.body-m;
+        color: v.$white;
+        margin: 0;
+    }
+}
+
+.vehicle-details-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+
+    .details-title {
+        @include typo.title-m;
+        margin-bottom: 1.5rem;
+        color: v.$black;
+    }
+}
+
+.vehicle-header {
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h1 {
+        @include typo.title-m;
+        margin: 0;
+        color: v.$black;
+    }
+
+    .vehicle-status {
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 12px;
+        @include typo.body-s;
+        background: transparent;
+        border: 1px solid v.$primary-color;
+        -webkit-border-radius: 12px;
+        -moz-border-radius: 12px;
+        -ms-border-radius: 12px;
+        -o-border-radius: 12px;
+    }
+}
+
+.image-gallery {
+    margin-bottom: 2rem;
+
+    .main-image {
+        width: 100%;
+        height: 400px;
+        object-fit: contain;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+    }
+}
+
+.specs-tab {
+    margin-bottom: 2rem;
+
+    h3 {
+        @include typo.title-s;
+        margin-bottom: 1rem;
+    }
+}
+
+.specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    .spec-item {
+        background: v.$primary-color;
+        padding: 1rem;
+        border-radius: 6px;
+
+        .spec-label {
+            @include typo.body-s;
+            display: block;
+            color: v.$grey;
+            margin-bottom: 0.25rem;
+        }
+
+        .spec-value {
+            font-weight: 600;
+            color: v.$black;
+        }
+    }
+}
+
+.price-summary {
+    background: v.$primary-color;
+    padding: 1.5rem;
+    border-radius: 8px;
+    max-width: 400px;
+
+    .price-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+
+        &:not(:last-child) {
+            border-bottom: 1px solid v.$white;
+        }
+
+        .price-amount {
+            @include typo.body-m;
+            color: v.$white;
+
+            &.total {
+                @include typo.body-m;
+                color: v.$white;
+            }
+        }
+    }
+}
